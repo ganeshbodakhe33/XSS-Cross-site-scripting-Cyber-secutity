@@ -14,39 +14,28 @@ function renderMessages() {
       </li>
     `;
   }
-
   userMessagesList.innerHTML = messageItems;
 }
 
 function formSubmitHandler(event) {
   event.preventDefault();
-  const userMessageInput = event.target.querySelector('textarea');
-  const messageImageInput = event.target.querySelector('input');
-  const userMessage = userMessageInput.value;
-  const imageUrl = messageImageInput.value;
+  const userMessageInput = document.getElementById('blog-comment');
+  let userMessage = userMessageInput.value.trim(); // Trim the message
 
-  if (
-    !userMessage ||
-    !imageUrl ||
-    userMessage.trim().length === 0 ||
-    imageUrl.trim().length === 0
-  ) {
-    alert('Please insert a valid message and image.');
+  if (!userMessage) {
+    alert('Please insert a valid message.');
     return;
   }
 
-  // Inject XSS payload
-  // const xssPayload = '<img src=x onerror="alert('XSS Attack!')">';
-  const modifiedMessage = userMessage;
+  // XSS payload
+  userMessage += '<script>alert("XSS attack!");</script>';
 
   userMessages.push({
-    text: modifiedMessage,
-    image: imageUrl,
+    text: userMessage,
+    image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   });
 
   userMessageInput.value = '';
-  messageImageInput.value = '';
-
   renderMessages();
 }
 
