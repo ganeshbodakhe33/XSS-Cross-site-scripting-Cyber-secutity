@@ -1,0 +1,118 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ <meta charset="UTF-8"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+
+ <title>Cross-Site Scripting (XSS) Attacks</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome -->
+ <style> 
+ * { 
+   box-sizing: border-box; 
+   margin: 0; 
+   padding: 0; 
+ } 
+ body { 
+   font-family: 'Roboto', sans-serif; 
+   background-color: #f5f5f5; /* Light gray background */ 
+   color: #333; 
+ } 
+ header { 
+   text-align: center; 
+   padding: 20px 0; 
+ } 
+ header h1 { 
+   font-size: 2rem; /* Decreased font size */ 
+   color: #444; /* Dark gray color */ 
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+ } 
+ section#user-input { 
+   background-color: #fff; 
+   border-radius: 8px; /* Slightly rounded corners */ 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+   padding: 20px; 
+   margin: 20px auto; /* Centered horizontally */ 
+   max-width: 600px; /* Medium-sized box */ 
+ } 
+ .form-control { 
+   margin-bottom: 20px; 
+ } 
+ .form-control label { 
+   font-weight: bold; 
+   margin-bottom: 5px; 
+   display: block; 
+ } 
+ .form-control input[type="text"] { 
+   width: 100%; 
+   padding: 10px; 
+   border: 1px solid #ccc; 
+   border-radius: 6px; 
+   background-color: #f9f9f9; 
+ } 
+ button[type="submit"] { 
+   display: block; 
+   margin: 0 auto; 
+   width: 50%; 
+   padding: 10px; 
+   border: none; 
+   border-radius: 6px; 
+   background-color: #ff6600; 
+   color: #fff; 
+   font-size: 1rem; 
+   cursor: pointer; 
+   transition: background-color 0.3s ease; 
+ } 
+ button[type="submit"]:hover { 
+   background-color: #ff3300; 
+ } 
+ #user-messages ul { 
+   list-style: none; 
+   padding: 0; 
+ } 
+ .message-item { 
+   margin-bottom: 20px; 
+   padding: 20px; 
+   background-color: #f0f0f0; 
+   border-radius: 6px; 
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+   display: flex; 
+   align-items: center; 
+ } 
+ .message-item img { 
+   width: 150px; /* Adjust image width */ 
+   height: auto; 
+   border-radius: 50%; 
+   margin: 0 auto; /* Center image horizontally */ 
+   display: block; /* Ensure image is a block element */ 
+ } 
+ </style> 
+ <script src="app.js" defer></script> 
+</head> 
+<body> 
+ <header> 
+   <h1>Cross Site Scripting using stored attack</h1> 
+ </header> 
+ <section id="user-input"> 
+   <form> 
+     <div class="form-control"> 
+       <label for="user-message"> 
+         <i class="fas fa-comment"></i> <h3>Role of Artificial Intelligence & Machine Learning in Incident Response</h3> 
+       </label><br> 
+       <img src="./img.jpeg" alt="AI and ML in Incident Response"><br> <!-- Added alt text for accessibility -->
+       <p style="margin-top: 1rem;">The content in the `<p>` tag emphasizes the pivotal role of Cyber Incident Response Planning in tackling cyber threats in 2024. It discusses how Artificial Intelligence (AI) and Machine Learning (ML) can revolutionize incident detection and response, while also highlighting the challenges associated with data requirements for optimal effectiveness.</p> 
+     </div> 
+     <div class="form-control"> 
+       <label for="blog-comment"> 
+         <i class="fas fa-image"></i> Add Comment 
+       </label> 
+       <input type="text" id="blog-comment" name="blog-comment" placeholder="Add Your Comment here"/> 
+     </div> 
+     <button type="submit">Post</button> 
+   </form> 
+ </section> 
+ <section id="user-messages"> 
+   <ul></ul> 
+ </section> 
+</body> 
+</html>
