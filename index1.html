@@ -1,51 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Product Search</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        h2 {
-            color: #333;
-        }
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            margin: 0 auto;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <h2>Product Search</h2>
-    <form action="search.php" method="GET">
-        <label for="keyword">Search:</label>
-        <input type="text" name="keyword" id="keyword">
-        <input type="submit" value="Search">
-    </form>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cross-Site Scripting (XSS) Attacks</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <section id="user-input">
+      <form>
+        <div class="form-control">
+          <label for="user-message">Your Message</label>
+          <textarea id="user-message" name="user-message"></textarea>
+        </div>
+        <div class="form-control">
+          <label for="message-image">Message Image</label>
+          <input type="text" id="message-image" name="message-image" />
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+    <section id="user-messages">
+      <ul></ul>
+    </section>
+  </body>
 </html>
-
